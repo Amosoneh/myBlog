@@ -1,2 +1,21 @@
-package africa.semicolon.myBlog.data.models;public class Blog {
+package africa.semicolon.myBlog.data.models;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.ArrayList;
+import java.util.List;
+@Document("Blog")
+@Data
+@NoArgsConstructor
+public class Blog {
+    @Id
+    private String id;
+    private String name;
+
+    @DBRef
+    private List<Article> articles = new ArrayList<>();
 }
